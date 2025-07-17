@@ -628,7 +628,7 @@ footer {
 
 .hero-logo-img {
     display: block;
-    margin: 0 auto 1rem auto;
+    margin: 0 auto 0 auto;
     max-width: 90vw;
     width: 700px;
     height: auto;
@@ -936,5 +936,5 @@ footer {
 
 /* Adjust hero section to account for header */
 .hero {
-    padding-top: 6rem;
+    padding-top: 0.5rem;
 }
