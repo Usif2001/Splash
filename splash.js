@@ -5,35 +5,9 @@ document.addEventListener('DOMContentLoaded', () => {
   document.querySelectorAll('.splash-particle').forEach(el => el.remove());
 });
 
-// Mouse trail effect (keep!)
-document.addEventListener('mousemove', function(e) {
-  const trail = document.createElement('div');
-  trail.style.position = 'fixed';
-  trail.style.width = '10px';
-  trail.style.height = '10px';
-  trail.style.borderRadius = '50%';
-  trail.style.background = `linear-gradient(45deg, #00F5FF, #EA047E, #FCE700)`;
-  trail.style.left = e.clientX + 'px';
-  trail.style.top = e.clientY + 'px';
-  trail.style.pointerEvents = 'none';
-  trail.style.zIndex = '999';
-  trail.style.animation = 'trailFade 1s ease-out forwards';
-  document.body.appendChild(trail);
 
-  setTimeout(() => {
-    trail.remove();
-  }, 1000);
-});
 
-// Keep the keyframes for the trail
-const style = document.createElement('style');
-style.textContent = `
-  @keyframes trailFade {
-    0% { opacity: 1; transform: scale(1); }
-    100% { opacity: 0; transform: scale(0); }
-  }
-`;
-document.head.appendChild(style);
+
 
 
     // Partner marquee animation
@@ -55,6 +29,50 @@ document.head.appendChild(style);
             observer.observe(partnersSection);
         }
     }
+    const animateParagraphs = document.querySelectorAll('.animate-words');
 
+  animateParagraphs.forEach(paragraph => {
+    const words = paragraph.innerHTML.split(/(\s+|<br>)/g); // include spaces and <br>
+    paragraph.innerHTML = words.map((word, i) => {
+      if (word === '<br>') return '<br>';
+      if (word.trim() === '') return word; // keep spaces as is
+      return `<span style="animation-delay:${i * 0.06 + 1}s">${word}</span>`;
+    }).join('');
+  });
 
+// Show CTA button after 7 seconds
+document.addEventListener('DOMContentLoaded', function() {
+  setTimeout(function() {
+    var cta = document.querySelector('.cta-delayed');
+    if (cta) {
+      cta.style.opacity = '1';
+      cta.style.pointerEvents = 'auto';
+      cta.style.transition = 'opacity 0.7s';
+    }
+  }, 7000); // 1000 is 1 sec 
+});
+
+// === About Section Animations ===
+function animateOnScroll() {
+  const animatedElements = document.querySelectorAll('.fade-in, .about-achieve-item, .about-achieve-title');
+  let delay = 0;
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const el = entry.target;
+        el.style.animationDelay = `${delay}s`;
+        el.classList.add('animated-element');
+        observer.unobserve(el);
+        delay += 0.3; // spacing between each animation
+      }
+    });
+  }, { threshold: 0.2 });
+
+  animatedElements.forEach(el => {
+    observer.observe(el);
+  });
+}
+
+document.addEventListener('DOMContentLoaded', animateOnScroll);
 
