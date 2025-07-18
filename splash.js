@@ -76,3 +76,21 @@ function animateOnScroll() {
 
 document.addEventListener('DOMContentLoaded', animateOnScroll);
 
+// Hamburger menu for mobile navigation
+function setupHamburgerMenu() {
+  const hamburger = document.getElementById('hamburger');
+  const navLinks = document.querySelector('.nav-links');
+  if (hamburger && navLinks) {
+    hamburger.addEventListener('click', function() {
+      navLinks.classList.toggle('open');
+    });
+    // Close menu when a link is clicked (mobile UX)
+    navLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('open');
+      });
+    });
+  }
+}
+document.addEventListener('DOMContentLoaded', setupHamburgerMenu);
+
