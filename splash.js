@@ -11,6 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     // Partner marquee animation
+    /*
     const marquee = document.querySelector('.marquee-track');
     if (marquee) {
         const observer = new IntersectionObserver(
@@ -28,7 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (partnersSection) {
             observer.observe(partnersSection);
         }
-    }
+    }*/
     const animateParagraphs = document.querySelectorAll('.animate-words');
 
   animateParagraphs.forEach(paragraph => {
@@ -64,7 +65,7 @@ function animateOnScroll() {
         el.style.animationDelay = `${delay}s`;
         el.classList.add('animated-element');
         observer.unobserve(el);
-        delay += 0.3; // spacing between each animation
+        delay += 0.18; // spacing between each animation
       }
     });
   }, { threshold: 0.2 });
