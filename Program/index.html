@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Partners - SPLASH</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../styles.css" />
+  <link rel="preload" href="../waves.jpg" as="image" />
+</head>
+<body>
+
+  <nav id="navbar">
+    <div class="container">
+      <div class="nav-container">
+        <div class="hamburger" id="hamburger">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <a href="/" class="logo">
+          <img src="../logo.png" alt="SPLASH Logo" class="logo-img" />
+        </a>
+        <ul class="nav-links">
+          <li><a href="/">Home</a></li>
+          <li><a href="/About">About</a></li>
+          <li><a href="/Partners">Partners</a></li>
+          <li><a href="/Program">Program</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <section id="program">
+    <div class="container">
+      <h2>SPLASH Event Program</h2>
+  
+      <!-- Summary -->
+      <div class="program-summary">
+        <p>The program runs across two main stages and workshops in parallel throughout the day.</p>
+        <ul>
+          <li><strong>Stage A – Keynotes & Pitching:</strong> Inspiring talks from founders, investors, and the SPLASH Pitching Competition.</li>
+          <li><strong>Stage B – Panels & Discussions:</strong> Engaging conversations on entrepreneurship, innovation, and ecosystem trends.</li>
+          <li><strong>Workshops – Hands-On Learning:</strong> Practical sessions with skill-building, exercises, and insights.</li>
+        </ul>
+        <p>Join SPLASH Matchmaking via QR code at the venue to connect instantly with investors, founders, and peers. The schedule balances deep-dive expertise, beginner-friendly sessions, and networking opportunities throughout the day.</p>
+      </div>
+  
+      <!-- Tabs -->
+      <div class="tabs">
+        <button class="tab-btn active" data-target="stageA">Stage A</button>
+        <button class="tab-btn" data-target="stageB">Stage B</button>
+        <button class="tab-btn" data-target="workshops">Workshops</button>
+      </div>
+  
+      <!-- Stage A -->
+      <div id="stageA" class="program-card tab-content active">
+        <ul>
+          <li><span>10:00 – 11:00</span> <span>Keynote: Thesis to Unicorn</span></li>
+          <li><span>11:00 – 11:45</span> <span>Keynote: Green is the New Scalable</span></li>
+          <li><span>12:15 – 12:45</span> <span>Pitch Competition Round 1</span></li>
+          <li><span>12:45 – 13:15</span> <span>Pitch Competition Round 2</span></li>
+          <li><span>13:15 – 13:45</span> <span>Pitch Competition Round 3</span></li>
+          <li><span>13:45 – 14:15</span> <span>Judging & Winner Announcement</span></li>
+          <li><span>15:30 – 16:15</span> <span>Keynote: Kelvin Chikezie – Early Stage Learnings</span></li>
+          <li><span>19:00 – 21:00</span> <span>The SPLASH! Afterparty 🎉</span></li>
+        </ul>
+      </div>
+  
+      <!-- Stage B -->
+      <div id="stageB" class="program-card tab-content">
+        <ul>
+          <li><span>10:00 – 11:00</span> <span>Panel: Campus Start-Ups are Going Global</span></li>
+          <li><span>11:00 – 11:30</span> <span>Beginner Onboarding: Startup Glossary</span></li>
+          <li><span>13:00 – 14:00</span> <span>Panel: Future-Proofing Humans</span></li>
+          <li><span>14:00 – 15:00</span> <span>Panel: Built by the Community</span></li>
+        </ul>
+      </div>
+  
+      <!-- Workshops -->
+      <div id="workshops" class="program-card tab-content">
+        <ul>
+          <li><span>10:00 – 12:00</span> <span>Marketing Campaign Fast Track</span></li>
+          <li><span>12:30 – 14:30</span> <span>Discover, Build & Pitch Your Startup</span></li>
+          <li><span>15:00 – 17:00</span> <span>Founder’s Burnout & Mental Fitness</span></li>
+          <li><span>17:30 – 19:30</span> <span>Ideation Hackathon</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  
+  <script>
+    // Simple tab switcher
+    const buttons = document.querySelectorAll(".tab-btn");
+    const contents = document.querySelectorAll(".tab-content");
+  
+    buttons.forEach(btn => {
+      btn.addEventListener("click", () => {
+        buttons.forEach(b => b.classList.remove("active"));
+        contents.forEach(c => c.classList.remove("active"));
+  
+        btn.classList.add("active");
+        document.getElementById(btn.dataset.target).classList.add("active");
+      });
+    });
+  </script>
+  
+    
+  <div class="section-fade"></div>
+
+  <footer>
+    <div class="footer-tagline">ALL YOU NEED IS A SPLASH OF ENTREPRENEURSHIP!</div>
+    <div class="footer-content">&copy; 2025 SPLASH - Finnish Entrepreneurship Summit. All rights reserved.</div>
+  </footer>
+
+  <script src="../splash.js"></script>
+</body>
+</html>
+
